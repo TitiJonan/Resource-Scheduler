@@ -112,4 +112,4 @@ docker run -p 5000:5000 resource-scheduler
 
 ## 5. Contributors
 - *Logonyi Nelson Emmanuel*
--*Ambasiize Titi Jonan*
+- *Ambasiize Titi Jonan*
