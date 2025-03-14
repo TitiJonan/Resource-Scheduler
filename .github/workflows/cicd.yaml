@@ -42,7 +42,7 @@ jobs:
       run: docker build -t titijonan/resource-scheduler .
 
     - name: Push Docker Image to Docker Hub
-      run: docker push elogonyi/resource-scheduler
+      run: docker push titijonan/resource-scheduler
 
     - name: Deploy to Cloud
       run: echo "Deployment step here (e.g., AWS, DigitalOcean, etc.)"
