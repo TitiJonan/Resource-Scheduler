@@ -32,7 +32,7 @@ jobs:
 
     - name: Login to Docker Hub
       run: |
-        if [[ -z "${{ secrets.DOCKER_USERNAME }}" || -z "${{ secrets.DOCKER_PASSWORD }}" ]]; then
+        if [[ -z "${{ secrets.DOCKERHUB_USERNAME }}" || -z "${{ secrets.DOCKERHUB_PASSWORD }}" ]]; then
           echo "❌ Error: Docker credentials are missing!"
           exit 1
         fi
