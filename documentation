@@ -1,0 +1,118 @@
+Group members
+AMBASIIZE TITI JONAN - SEP23/BIST/3171U
+LOGONYI NELSON EMMANUEL - SEP24/BIST/4611U/Q
+
+Link to our project github repository:
+https://github.com/TitiJonan/Resource-Scheduler 
+
+ 	Task 2 Documentation with presentation.
+Project Setup GitHub Repository:  
+We created a well-organized repository named resource scheduler with separate folders for source code, documentation, dockerfile and other files, which Include an initial `README.md` file to explain the project's purpose, features, and setup instructions as seen in the GitHub repository and one of the members was added as a collaborator to contribute to the building of the app but first we develop and tested the app locally using terminal as our server and the browser as the client on localhost then after we push our code to our GitHub repository. 
+ 
+ 
+Our System Design 
+Simulate Customer Arrival: 
+We use a randomized function to generate customers with attributes like service time and priority level (e.g., VIP, Corporate, Normal). Store this data in a queue or list for processing. 
+Agent Scheduling: Implement scheduling algorithms:
+ • Round Robin Scheduling, rotate tasks among agents equally. 
+• Priority Scheduling, serve VIP and Corporate customers first. 
+• Shortest Job Next, handle tasks with shorter service times first. 
+Define each agent's workload limit and availability status, keep track of tasks assigned to each agent. 
+
+ 
+Real-Time Monitoring: 
+• Build a dashboard or logging system to update agent availability and workload status every 5 seconds. 
+• Provide insights for managers to optimize staffing. 
+
+ 
+Performance Metrics Calculate and display: 
+Average Customer Wait Time, time spent waiting before service begins. 
+Agent Utilization Rate, percentage of time agents are actively working. Fairness in Task Distribution, measure the task balance among agents. 
+
+ 
+Containerization with Docker 
+We wrote a `Docker file` to containerize our application. 
+Example sections: 
+FROM python:3.10-slim 
+WORKDIR /app 
+COPY . . RUN pip install -r requirements.txt 
+CMD ["python", "main.py"] 
+ 
+We tested our application within a containerized environment to ensure consistency across 
+Deployments CI/CD Pipeline GitHub Actions Workflow 
+We used CI/CD Pipeline GitHub Actions Workflow to automate our work for example we created a .GitHub folder inside it we created a workflows folder having our .yaml file for pushing jobs, building our container from Docker hub which was connected to our app by adding our docker user name and docker password using the secret and variables action under settings on the app repository which gave us the following features
+• Automate build and test processes for each commit. 
+• Push Docker images to Docker Hub.
+ • Deploy the application to a cloud platform using railway.app. 
+Push Docker image to Docker Hub env: 
+ 
+ 
+Deployment using railway.app 
+ 
+ 
+ 
+
+
+Documentation & Presentation Keep an updated Software Requirements Specification (SRS) 
+ 	Software Requirements Specification (SRS) for Resource Scheduler
+1. Introduction
+This is a resource scheduler software designed and implemented to optimize the allocation of employees such as bank tellers or call center agents to customer requests while making sure the system is able to minimize customer wait times, maximize resource utilization, and fairness in task distribution.
+1.1 Purpose
+The Resource Scheduler is designed to optimize employee allocation for handling customer requests in environments such as banks and call centers. The system ensures minimized customer wait times, maximized resource utilization, and fairness in task distribution through efficient scheduling algorithms.
+1.2 Scope
+The system will:
+•	Simulate customer arrivals with varying service times and priority levels (VIP, Corporate, Normal).
+•	Dynamically assign employees (bank tellers/call center agents) based on workload and availability.
+•	Implement multiple scheduling algorithms (Round Robin, Priority Scheduling, Shortest Job Next).
+•	Provide real-time monitoring of employee workload and status updates every 5 seconds.
+•	Offer performance metrics including average customer waiting time, agent utilization rate, and fairness in task distribution.
+•	Support containerized deployment using Docker and automated CI/CD with GitHub Actions.
+2. Functional Requirements
+2.1 User Roles
+•	Administrator, it configures the system, manages users, monitors scheduling performance.
+•	Employee, it handles assigned customer requests.
+•	Customer, it interacts with the system by making service requests.
+2.2 Core Features
+•	Customer Request Handling, accepting customer requests with randomized service times and priorities.
+•	Scheduling Algorithms, it implements and switch between Round Robin, Priority Scheduling, and Shortest Job Next.
+•	Real-time Monitoring, it can display real-time workload status of employees.
+•	Performance Metrics, it can measure efficiency using key performance indicators.
+•	Containerized Deployment, the use of Docker for portability.
+•	Automated CI/CD, the continuous integration and continuous development aided by GitHub Actions for continuous testing and deployment.
+3. Non-Functional Requirements
+•	Scalability, should handle an increasing number of customers and employees.
+•	Reliability, it ensures high availability and minimal downtime.
+•	Security, it implements authentication and authorization mechanisms.
+•	Usability, it provides a simple, intuitive web-based UI for monitoring and control.
+4. System Architecture
+4.1 Technology Stack
+•	Backend, mainly Python (Flask).
+•	Database, MySQL.
+•	Frontend, HTML, CSS, and JavaScript.
+•	Containerization, Docker.
+•	CI/CD, automated by GitHub Actions.
+4.2 System Components
+•	Scheduler Service, this implements scheduling algorithms.
+•	Database, it Stores customer requests and employee workload data.
+•	Monitoring Dashboard, it displays real-time statistics.
+•	Deployment Pipeline, this manages CI/CD workflow.
+5. Deployment
+5.1 Setup Instructions
+•	Clone the repository from GitHub.
+•	Install dependencies using pip install -r requirements.txt.
+•	Run the application using python resource_scheduler.py.
+•	For Dockerized deployment: 
+1.	Build the image: docker build -t resource-scheduler .
+2.	Run the container: docker run -p 5000:5000 resource-scheduler
+5.2 CI/CD Workflow
+•	Automated testing with pytest.
+•	Docker image build and push to Docker Hub.
+•	Deployment to a cloud platform.
+6. Future Enhancements
+•	Implement Machine Learning-based predictive scheduling.
+•	Add multi-tenant support.
+•	Enhance UI with interactive dashboards.
+7. Conclusion
+The Resource Scheduler provides an efficient, scalable, and automated solution for employee task scheduling, ensuring improved customer service and optimized resource allocation.
+
+
